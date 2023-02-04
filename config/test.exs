@@ -28,3 +28,14 @@ config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# EventStore configuration
+
+config :commanded,
+  event_store: [
+    adapter: Commanded.EventStore.Adapters.InMemory,
+    event_store: BankAPI.EventStore
+  ]
+
+config :bank_api, BankAPI.EventStore,
+  serializer: EventStore.JsonbSerializer

@@ -1,4 +1,4 @@
-defmodule BankApiWeb.FallbackController do
+defmodule BankAPIWeb.FallbackController do
   use BankAPIWeb, :controller
 
   def call(conn, {:error, :not_found}) do

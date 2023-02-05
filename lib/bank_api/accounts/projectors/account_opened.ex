@@ -1,6 +1,8 @@
 defmodule BankAPI.Accounts.Projectors.AccountOpened do
   use Commanded.Projections.Ecto,
-    name: "Accounts.Projectors.AccountOpened"
+    name: "Accounts.Projectors.AccountOpened",
+    repo: BankAPI.Repo,
+    application: BankAPI.CommandedApplication
 
   alias BankAPI.Accounts.Events.AccountOpened
   alias BankAPI.Accounts.Projections.Account

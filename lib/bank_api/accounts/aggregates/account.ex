@@ -1,4 +1,4 @@
-defmodule BankApi.Accounts.Aggregates.Account do
+defmodule BankAPI.Accounts.Aggregates.Account do
   defstruct ~w(uuid current_balance)a
 
   alias __MODULE__

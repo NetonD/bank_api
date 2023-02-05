@@ -1,4 +1,4 @@
-defmodule BankApiWeb.AccountControllerTest do
+defmodule BankAPIWeb.AccountControllerTest do
   use BankAPIWeb.ConnCase
 
   @create_attrs %{

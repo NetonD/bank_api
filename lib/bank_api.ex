@@ -1,6 +1,4 @@
 defmodule BankAPI do
-  use Commanded.Application, otp_app: :bank_api
-
   @moduledoc """
   BankAPI keeps the contexts that define your domain
   and business logic.

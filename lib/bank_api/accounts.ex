@@ -1,4 +1,4 @@
-defmodule BankApi.Accounts do
+defmodule BankAPI.Accounts do
   @moduledoc """
   Surface of interface to Account context.
   """

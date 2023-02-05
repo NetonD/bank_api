@@ -49,16 +49,15 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Commanded configs
-config :commanded,
+config :bank_api, BankAPI.CommandedApplication,
   event_store: [
     adapter: Commanded.EventStore.Adapters.EventStore,
     event_store: BankAPI.EventStore
-  ]
+  ],
+  pubsub: :local,
+  registry: :local
 
 config :bank_api, event_stores: [BankAPI.EventStore]
-
-config :commanded_ecto_projections,
-  repo: BankAPI.Repo
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

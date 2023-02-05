@@ -31,11 +31,8 @@ config :phoenix, :plug_init_mode, :runtime
 
 # EventStore configuration
 
-config :commanded,
+config :bank_api, BankAPI.CommandedApplication,
   event_store: [
     adapter: Commanded.EventStore.Adapters.InMemory,
-    event_store: BankAPI.EventStore
+    serializer: Commanded.Serialization.JsonSerializer
   ]
-
-config :bank_api, BankAPI.EventStore,
-  serializer: EventStore.JsonbSerializer

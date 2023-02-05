@@ -15,13 +15,13 @@ defmodule BankAPIWeb.AccountControllerTest do
 
   describe "create account" do
     test "render account when have valid attrs", %{conn: conn} do
-      conn = post(conn, Routes.account_path(conn, :create, @create_attrs))
+      conn = post(conn, Routes.account_path(conn, :create, account: @create_attrs))
 
       assert %{"uuid" => _uuid, "account_balance" => 42_00} = json_response(201, conn)["data"]
     end
 
     test "render error when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.account_path(conn, :create, @invalid_attrs))
+      conn = post(conn, Routes.account_path(conn, :create, account: @invalid_attrs))
 
       assert json_response(201, conn)["errors"] != %{}
     end

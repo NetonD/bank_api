@@ -15,7 +15,8 @@ defmodule BankAPI.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: BankAPI.PubSub},
       # Start the Endpoint (http/https)
-      BankAPIWeb.Endpoint
+      BankAPIWeb.Endpoint,
+      BankAPI.Accounts.Supervisor
       # Start a worker by calling: BankAPI.Worker.start_link(arg)
       # {BankAPI.Worker, arg}
     ]

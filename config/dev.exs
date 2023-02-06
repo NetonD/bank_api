@@ -65,11 +65,8 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Event Store configurations
 
-config :eventstore, column_data_type: "jsonb"
-
 config :bank_api, BankAPI.EventStore,
-  serializer: EventStore.JsonbSerializer,
-  types: EventStore.PostgresTypes,
+  serializer: Commanded.Serialization.JsonSerializer,
   username: "postgres",
   password: "postgres",
   database: "bank_api_eventstore_dev",

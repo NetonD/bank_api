@@ -36,8 +36,13 @@ defmodule BankAPI.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
+    {:ok, _apps} = Application.ensure_all_started(:bank_api)
     pid = Ecto.Adapters.SQL.Sandbox.start_owner!(BankAPI.Repo, shared: not tags[:async])
-    on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
+    on_exit(fn ->
+      Commanded.EventStore.Adapters.InMemory.reset!(BankAPI.CommandedApplication)
+      :ok = Application.stop(:bank_api)
+      Ecto.Adapters.SQL.Sandbox.stop_owner(pid)
+    end)
   end
 
   @doc """

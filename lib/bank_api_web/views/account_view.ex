@@ -1,7 +1,7 @@
 defmodule BankAPIWeb.AccountView do
   use BankAPIWeb, :view
 
-  alias BankApiWeb.AccountView
+  alias BankAPIWeb.AccountView
 
   def render("show.json", %{account: account}) do
     %{data: render_one(account, AccountView, "account.json")}

@@ -10,7 +10,7 @@ defmodule BankAPIWeb.AccountController do
     with {:ok, %Account{} = account} <- Accounts.open_account(account_params) do
       conn
       |> put_status(:created)
-      |> render("show.json", accout: account)
+      |> render("show.json", account: account)
     end
   end
 end
